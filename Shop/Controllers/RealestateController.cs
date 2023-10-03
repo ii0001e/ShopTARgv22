@@ -106,12 +106,15 @@ namespace Shop.Controllers
 
             }
 
-            var images = await _context.FileToApis
-                .Where(x => x.SpaceshipId == id)
-                .Select(y => new FileToApiRealViewModel
+            var photos = await _context.FilesToDatabases
+                .Where(x => x.RealEstateId == id)
+                .Select(y => new ImageToDatabaseViewModel
                 {
-                    FilePath = y.ExistingFilePath,
-                    Id = y.Id
+                    RealEstateId = y.Id,
+                    ImageId = y.Id,
+                    ImageData = y.ImageData,
+                    ImageTitle = y.ImageTitle,
+                    Image = string.Format("data:image/dif;base64,{0}", Convert.ToBase64String(y.ImageData))
                 }).ToArrayAsync();
 
             var vm = new RealEstateDetailsViewModel();
@@ -119,17 +122,13 @@ namespace Shop.Controllers
             vm.Id = realestate.Id;
             vm.Address = realestate.Address;
             vm.SizeSqrM = (float)realestate.SizeSqrM;
-
             vm.RoomCount = realestate.RoomCount;
-
             vm.Floor = realestate.Floor;
             vm.BuildingType = realestate.BuildingType;
             vm.BuiltinYear = realestate.BuiltinYear;
-            //string formattedDate = realestate.BuiltinYear.ToString("yyyy-MM-dd HH:mm:ss");
-
             vm.CreatedAt = realestate.CreatedAt;
             vm.UpdatedAt = realestate.UpdatedAt;
-            vm.FileToApiViewModels.AddRange((IEnumerable<Models.Realestate.FileToApiRealViewModel>)images);
+            vm.Image.AddRange(photos);
 
 
 
