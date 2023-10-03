@@ -46,7 +46,7 @@ namespace Shop.ApplicationServices.Services
 
             if (dto.Files !=null)
             {
-                _fileServices.UploadFilesToDatabase(dto, realestate)
+                _fileServices.UploadFilesToDatabase(dto, realestate);
 
             }
 

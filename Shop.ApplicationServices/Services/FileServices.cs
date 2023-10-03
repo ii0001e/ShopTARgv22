@@ -27,20 +27,11 @@ namespace Shop.ApplicationServices.Services
             (
             IHostEnvironment webHost,
             ShopContext context
-            
-
-
             )
         {
             _webHost = webHost;
             _context = context;
-
-            
-
-
         }
-
-
 
 
         public void FilesToApi(SpaceshipDto dto, Spaceship spaceship)
@@ -138,7 +129,7 @@ namespace Shop.ApplicationServices.Services
 
 
 
-        public void UploadFilesToDatabase(SpaceshipDto dto, Spaceship domain)
+        public void UploadFilesToDatabase(RealEstateDto dto, RealEstate domain)
         {
             if ( dto.Files!=null &&  dto.Files.Count>0)
             {

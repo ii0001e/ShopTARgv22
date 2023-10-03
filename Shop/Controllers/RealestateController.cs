@@ -62,23 +62,25 @@ namespace Shop.Controllers
             {
                 Id = vm.Id,
                 Address = vm.Address,
-                SizeSqrM =Convert.ToSingle( vm.SizeSqrM),
+                SizeSqrM = Convert.ToSingle(vm.SizeSqrM),
                 RoomCount = vm.RoomCount,
                 Floor = vm.Floor,
-
                 BuildingType = vm.BuildingType,
                 BuiltinYear = vm.BuiltinYear,
-                
+                CreatedAt = vm.CreatedAt,
+                UpdatedAt = vm.UpdatedAt,
                 Files = vm.Files,
-                Image = vm.FileToApiViewModels
-                    .Select(x => new FileToApiDto
+                Image = vm.Image.Select
+                (
+                    x => new FileToDatabaseDto
                     {
-                        Id = x.Id,
-                        ExistingFilePath = x.FilePath,
-                        //1.filetoapidto 2.filetoapiviewmodel
-                        RealsetateId = x.RealsetateId,
-                    }).ToArray()
-
+                        Id = x.ImageId,
+                        ImageData = x.ImageData,
+                        ImageTitle = x.ImageTitle,
+                        RealEstateId = x.RealEstateId
+                    }
+                ).ToArray()
+               
             };
 
             var result = await _realstateService.Create(dto);
