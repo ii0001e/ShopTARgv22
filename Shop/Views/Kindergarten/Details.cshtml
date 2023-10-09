@@ -1,0 +1,56 @@
+﻿@model Shop.Models.Realestate.RealEstateDetailsViewModel
+
+
+<h1>Details</h1>
+
+
+<duv>
+
+    
+    <hr />
+    <dl class="row">
+        <div class="form-group row">
+            <label asp-for="Id" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model=>Model.Id)
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="GroupName" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model=>Model.GroupName)
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="ChildrenCount" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model=>Model.ChildrenCount)
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="KindergartenName" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model=>Model.KindergartenName)
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Teacher" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model=>Model.Teacher)
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CreatedAt" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model=>Model.CreatedAt)
+
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="UpdatedAt" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model=>Model.UpdatedAt)
+
+        </div>
+    </dl>
+    <hr />
+    <a asp-action="index" class="btn btn-primary">Back</a>
+</duv>
