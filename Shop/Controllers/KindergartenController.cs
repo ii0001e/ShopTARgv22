@@ -10,20 +10,17 @@ namespace Shop.Controllers
     {
         private readonly ShopContext _context;
         private readonly IKindergartenServices _kindergartenServices;
-        private readonly IFileServices _fileServices;
 
 
         public KindergartenController
             (
             ShopContext context,
-            IKindergartenServices spaceshipServices,
-            IFileServices fileServices
+            IKindergartenServices spaceshipServices
 
             )
         {
             _context = context;
             _kindergartenServices = spaceshipServices;
-            _fileServices = fileServices;
 
         }
 
@@ -72,7 +69,7 @@ namespace Shop.Controllers
                 return RedirectToAction(nameof(Index));
 
             }
-            return RedirectToAction(nameof(Index), vm);
+            return RedirectToAction(nameof(Index), kg);
             //return index
 
         }
@@ -124,10 +121,6 @@ namespace Shop.Controllers
 
             kg.CreatedAt = kindergarten.CreatedAt;
             kg.UpdatedAt = kindergarten.UpdatedAt;
-
-
-
-
 
             return View("CreateUpdate", kg);
         }

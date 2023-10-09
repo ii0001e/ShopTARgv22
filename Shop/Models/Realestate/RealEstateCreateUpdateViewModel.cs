@@ -1,5 +1,4 @@
-﻿using Shop.Models.Spaceship;
-
+﻿
 namespace Shop.Models.Realestate
 {
     public class RealEstateCreateUpdateViewModel

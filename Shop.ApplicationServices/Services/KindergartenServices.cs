@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Shop.ApplicationServices.Services
 {
-    public class KindergartenServices
+    public class KindergartenServices : IKindergartenServices
     {
         private readonly ShopContext _context;
 
@@ -105,4 +105,4 @@ namespace Shop.ApplicationServices.Services
         }
     }
 }
-}
+
